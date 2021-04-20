@@ -15,5 +15,9 @@ Text: Кот, Length: 3, Shift: 2, DecodedText: Мрф, Owner: Mike
 Text: Кот, Length: 3, Replacement: [К->Т]-[о->о]-[т->р], DecodedText: Тор, Owner: Mike
 Text: Abc, Length: 3, Replacement: [A->x]-[b->y]-[c->z], DecodedText: xyz, Owner: Mike
 Text: Абв, Length: 3, Replacement: [А->Я]-[б->ю]-[в->э], DecodedText: Яюэ, Owner: Kostya
+Container contains: 3, Shift elements!
+Text: Blue, Length: 4, Shift: 3, DecodedText: Eoxh, Owner: Kostya
+Text: abcd, Length: 4, Shift: 3, DecodedText: defg, Owner: Kostya
+Text: Кот, Length: 3, Shift: 2, DecodedText: Мрф, Owner: Mike
 Container contains: 0, elements!
 Stop!
