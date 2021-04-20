@@ -1,7 +1,8 @@
 import Replacement from './Replacement.js';
 import Shift from './Shift.js';
-import { shiftIn, replacementIn } from './InText.js';
-import { replacementOut, shiftOut } from './OutText.js';
+import ReplaceNumber from './ReplaceNumber.js';
+import { shiftIn, replacementIn, replaceNumberIn } from './InText.js';
+import { replacementOut, shiftOut, replaceNumberOut } from './OutText.js';
 export const inText = (tmp, container) => {
   switch (tmp[0]) {
     case '1':
@@ -14,6 +15,16 @@ export const inText = (tmp, container) => {
       shiftIn(tmp.toString().split(' '), shift, tmp.split(' ')[1]);
       container.push(shift);
       break;
+    case '3':
+      let replaceNumber = new ReplaceNumber();
+      replaceNumberIn(
+        tmp.toString().split(' '),
+        replaceNumber,
+        tmp.split(' ')[1].replace(/\r/g, ''),
+      );
+
+      container.push(replaceNumber);
+      break;
     default:
       return 0;
   }
@@ -24,5 +35,7 @@ export const outText = (container, i, writer) => {
     replacementOut(container, i, writer);
   } else if ('shift' in container[i]) {
     shiftOut(container, i, writer);
+  } else if ('replaceNumber' in container[i]) {
+    replaceNumberOut(container, i, writer);
   }
 };
