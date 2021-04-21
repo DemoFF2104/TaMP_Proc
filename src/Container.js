@@ -2,6 +2,7 @@ import { readLine, fileEmpty } from './Reader.js';
 import { Writer, writeLine } from './Writer.js';
 import { inText, outText } from '../src/core/FinText.js';
 import { compare } from './utils/compare.js';
+import { validateLine } from './utils/validate.js';
 export const containerConst = () => {
   let container = [];
   return container;
@@ -12,7 +13,10 @@ export const containerClear = (container) => {
 export const containerIn = (container, reader) => {
   while (!fileEmpty(reader)) {
     let tmp = readLine(reader);
-    inText(tmp, container);
+    if (validateLine(tmp)) inText(tmp, container);
+    else {
+      console.log('Ошибка в файле ввода');
+    }
   }
 };
 export const containerOut = (container, writer) => {
